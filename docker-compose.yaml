@@ -1,0 +1,23 @@
+---
+networks:
+  network1: ~
+  network2: ~
+  network3: ~
+services:
+  test1:
+    container_name: nginx
+    image: "sreeharshav/rollingupdate:v3"
+    networks:
+      - network1
+      - network2
+    ports:
+      - "8000"
+  test2:
+    container_name: utils
+    image: sreeharshav/utils
+    networks:
+      - network1
+      - network2
+    ports:
+      - "8000"
+version: "3"
